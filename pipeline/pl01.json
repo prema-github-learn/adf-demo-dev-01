@@ -1,0 +1,19 @@
+{
+	"name": "pl01",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-09-07T10:54:13Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

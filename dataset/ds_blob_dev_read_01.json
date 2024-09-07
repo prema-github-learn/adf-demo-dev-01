@@ -1,0 +1,24 @@
+{
+	"name": "ds_blob_dev_read_01",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blob_dev_01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Input_demo_01.csv",
+				"container": "devcontainer01"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

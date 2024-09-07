@@ -1,0 +1,9 @@
+{
+	"name": "dataFactorydev-01",
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d87c656d-d9b1-4c26-a080-89325da04039",
+		"tenantId": "a6e565b0-5cae-4e32-885a-f59607ab4c53"
+	}
+}
