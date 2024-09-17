@@ -61,26 +61,6 @@
 				]
 			},
 			{
-				"name": "sp_logs_fail",
-				"type": "SqlServerStoredProcedure",
-				"dependsOn": [
-					{
-						"activity": "Copy_logs",
-						"dependencyConditions": [
-							"Failed"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": []
-			},
-			{
 				"name": "sp_logs_success",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
@@ -98,7 +78,101 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[sp_dataloadlog]",
+					"storedProcedureParameters": {
+						"filename": {
+							"value": {
+								"value": "Input_demo_01.csv",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"log": {
+							"value": {
+								"value": "@activity('Copy_logs').output.filesWritten",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"pipelineid": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"status": {
+							"value": {
+								"value": "'Success'",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_az_sql_01",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "sp_logs_failure",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Copy_logs",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[sp_dataloadlog]",
+					"storedProcedureParameters": {
+						"filename": {
+							"value": {
+								"value": "Input_demo_01.csv",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"log": {
+							"value": {
+								"value": "@string(activity('Copy_logs').output.errors)",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"pipelineid": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"status": {
+							"value": {
+								"value": "'Failure'",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_az_sql_01",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
