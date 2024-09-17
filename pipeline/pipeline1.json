@@ -91,7 +91,7 @@
 						},
 						"log": {
 							"value": {
-								"value": "@activity('Copy_logs').output.filesWritten",
+								"value": "@activity('Copy_logs').output.rowsCopied",
 								"type": "Expression"
 							},
 							"type": "String"
