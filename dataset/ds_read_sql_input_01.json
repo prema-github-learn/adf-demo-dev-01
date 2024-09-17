@@ -1,0 +1,21 @@
+{
+	"name": "ds_read_sql_input_01",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_az_sql_01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ename",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "emp"
+		}
+	}
+}
