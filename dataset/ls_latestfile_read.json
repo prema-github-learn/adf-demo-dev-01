@@ -1,0 +1,22 @@
+{
+	"name": "ls_latestfile_read",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blob_dev_01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "latestfiles"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
