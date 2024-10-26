@@ -7,6 +7,12 @@
 		},
 		"ls_blob_dev_01_connectionString": {
 			"value": ""
+		},
+		"ls_adls_gen2_01_accountKey": {
+			"value": ""
+		},
+		"ls_adls_gen2_01_properties_typeProperties_url": {
+			"value": "https://mountpoint01.dfs.core.windows.net/"
 		}
 	}
 }
