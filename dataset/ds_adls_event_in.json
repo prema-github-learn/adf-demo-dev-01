@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "emp_details.csv",
+				"fileName": "event-01.csv",
+				"folderPath": "event_file",
 				"fileSystem": "inputfiles"
 			},
 			"columnDelimiter": ",",
