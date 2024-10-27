@@ -19,6 +19,10 @@
 			"type": "string",
 			"defaultValue": "https://mountpoint01.dfs.core.windows.net/"
 		},
+		"tr_event_01_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/a8749cd2-1d7e-446c-b620-639a49858570/resourceGroups/oneResourceGroup/providers/Microsoft.Storage/storageAccounts/mountpoint01"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -54,6 +58,9 @@
 					},
 					"ls_adls_gen2_01_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_gen2_01_properties_typeProperties_url')]"
+					},
+					"tr_event_01_properties_typeProperties_scope": {
+						"value": "[parameters('tr_event_01_properties_typeProperties_scope')]"
 					}
 				}
 			},
