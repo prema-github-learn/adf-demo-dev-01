@@ -2,18 +2,11 @@
 	"name": "tr_event_01",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "pl_event_demo",
-					"type": "PipelineReference"
-				}
-			}
-		],
+		"runtimeState": "Stopped",
+		"pipelines": [],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/inputfiles/blobs/inputfiles/eventfile/",
+			"blobPathBeginsWith": "/inputfiles/blobs/event_file/",
 			"blobPathEndsWith": ".csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/a8749cd2-1d7e-446c-b620-639a49858570/resourceGroups/oneResourceGroup/providers/Microsoft.Storage/storageAccounts/mountpoint01",
