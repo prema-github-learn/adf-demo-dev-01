@@ -7,13 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "dataFactorydev-01"
 		},
-		"ls_blob_dev_01_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'ls_blob_dev_01'"
-		},
 		"ls_adls_gen2_01_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adls_gen2_01'"
+		},
+		"ls_blob_dev_01_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_blob_dev_01'"
 		},
 		"ls_adls_gen2_01_properties_typeProperties_url": {
 			"type": "string",
@@ -50,11 +50,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"ls_blob_dev_01_connectionString": {
-						"value": "[parameters('ls_blob_dev_01_connectionString')]"
-					},
 					"ls_adls_gen2_01_accountKey": {
 						"value": "[parameters('ls_adls_gen2_01_accountKey')]"
+					},
+					"ls_blob_dev_01_connectionString": {
+						"value": "[parameters('ls_blob_dev_01_connectionString')]"
 					},
 					"ls_adls_gen2_01_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_gen2_01_properties_typeProperties_url')]"

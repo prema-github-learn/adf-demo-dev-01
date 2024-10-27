@@ -5,10 +5,10 @@
 		"factoryName": {
 			"value": "dataFactorydev-01"
 		},
-		"ls_blob_dev_01_connectionString": {
+		"ls_adls_gen2_01_accountKey": {
 			"value": ""
 		},
-		"ls_adls_gen2_01_accountKey": {
+		"ls_blob_dev_01_connectionString": {
 			"value": ""
 		},
 		"ls_adls_gen2_01_properties_typeProperties_url": {
