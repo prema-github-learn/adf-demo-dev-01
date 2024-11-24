@@ -1,0 +1,159 @@
+{
+	"name": "pl_parquet",
+	"properties": {
+		"activities": [
+			{
+				"name": "parq_file",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": true,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['user_id']"
+								},
+								"sink": {
+									"name": "user_id"
+								}
+							},
+							{
+								"source": {
+									"path": "$['email']"
+								},
+								"sink": {
+									"name": "email"
+								}
+							},
+							{
+								"source": {
+									"path": "$['name']"
+								},
+								"sink": {
+									"name": "name"
+								}
+							},
+							{
+								"source": {
+									"path": "$['given_name']"
+								},
+								"sink": {
+									"name": "given_name"
+								}
+							},
+							{
+								"source": {
+									"path": "$['family_name']"
+								},
+								"sink": {
+									"name": "family_name"
+								}
+							},
+							{
+								"source": {
+									"path": "$['nickname']"
+								},
+								"sink": {
+									"name": "nickname"
+								}
+							},
+							{
+								"source": {
+									"path": "$['last_ip']"
+								},
+								"sink": {
+									"name": "last_ip"
+								}
+							},
+							{
+								"source": {
+									"path": "$['logins_count']"
+								},
+								"sink": {
+									"name": "logins_count"
+								}
+							},
+							{
+								"source": {
+									"path": "$['created_at']"
+								},
+								"sink": {
+									"name": "created_at"
+								}
+							},
+							{
+								"source": {
+									"path": "$['updated_at']"
+								},
+								"sink": {
+									"name": "updated_at"
+								}
+							},
+							{
+								"source": {
+									"path": "$['last_login']"
+								},
+								"sink": {
+									"name": "last_login"
+								}
+							},
+							{
+								"source": {
+									"path": "$['email_verified']"
+								},
+								"sink": {
+									"name": "email_verified"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_json_file_input",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_parq_out_file",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

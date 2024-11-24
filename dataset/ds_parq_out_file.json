@@ -1,0 +1,69 @@
+{
+	"name": "ds_parq_out_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_gen2_01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "customer.parquet",
+				"fileSystem": "outputfiles"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "user_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "email",
+				"type": "UTF8"
+			},
+			{
+				"name": "name",
+				"type": "UTF8"
+			},
+			{
+				"name": "given_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "family_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "nickname",
+				"type": "UTF8"
+			},
+			{
+				"name": "last_ip",
+				"type": "UTF8"
+			},
+			{
+				"name": "logins_count",
+				"type": "INT64"
+			},
+			{
+				"name": "created_at",
+				"type": "UTF8"
+			},
+			{
+				"name": "updated_at",
+				"type": "UTF8"
+			},
+			{
+				"name": "last_login",
+				"type": "UTF8"
+			},
+			{
+				"name": "email_verified",
+				"type": "BOOLEAN"
+			}
+		]
+	}
+}
