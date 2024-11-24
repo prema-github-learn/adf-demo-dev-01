@@ -19,6 +19,13 @@
 						"type": "LinkedServiceReference"
 					},
 					"name": "deltalakOutput"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_csv_df_out",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
 				}
 			],
 			"transformations": [
@@ -63,7 +70,21 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> deltalakOutput"
+				"     skipDuplicateMapOutputs: true) ~> deltalakOutput",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          empid as string,",
+				"          ename as string,",
+				"          edept as string,",
+				"          edesignation as string,",
+				"          elocation as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
