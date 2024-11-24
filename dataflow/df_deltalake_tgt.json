@@ -10,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "readparq"
+				},
+				{
+					"linkedService": {
+						"referenceName": "ls_adls_gen2_01",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source1"
 				}
 			],
 			"sinks": [
@@ -52,6 +59,31 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     format: 'parquet') ~> readparq",
+				"source(output(",
+				"          user_id as string,",
+				"          email as string,",
+				"          name as string,",
+				"          given_name as string,",
+				"          family_name as string,",
+				"          nickname as string,",
+				"          last_ip as string,",
+				"          logins_count as long,",
+				"          created_at as string,",
+				"          updated_at as string,",
+				"          last_login as string,",
+				"          email_verified as boolean",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'delta',",
+				"     versionAsOf: 3,",
+				"     fileSystem: 'outputfiles',",
+				"     folderPath: 'deltaLake',",
+				"     partitionBy('key',",
+				"          1,",
+				"          user_id",
+				"     )) ~> source1",
 				"readparq derive(name = iifNull(name, 'vivek', '')) ~> derivedColumn1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
