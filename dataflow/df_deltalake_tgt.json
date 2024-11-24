@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "df_deltalake_tgt",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
