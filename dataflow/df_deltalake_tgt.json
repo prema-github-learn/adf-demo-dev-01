@@ -80,13 +80,12 @@
 				"          edesignation as string,",
 				"          elocation as string",
 				"     ),",
-				"     filePattern:'abc1',",
+				"     filePattern:'abc[1]',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> sink1"
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
