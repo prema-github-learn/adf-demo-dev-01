@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -122,7 +123,39 @@
 								"expression": {
 									"value": "@greater(activity('Lookup1').output.count,0)",
 									"type": "Expression"
-								}
+								},
+								"ifFalseActivities": [
+									{
+										"name": "Set variable3",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "var03",
+											"value": "File has rows to process"
+										}
+									}
+								],
+								"ifTrueActivities": [
+									{
+										"name": "Set variable2",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "var02",
+											"value": "'File is *EMPTY*'"
+										}
+									}
+								]
 							}
 						}
 					]
@@ -131,6 +164,12 @@
 		],
 		"variables": {
 			"var01": {
+				"type": "String"
+			},
+			"var02": {
+				"type": "String"
+			},
+			"var03": {
 				"type": "String"
 			}
 		},
