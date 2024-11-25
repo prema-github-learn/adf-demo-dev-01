@@ -52,7 +52,7 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Set variable1",
+							"name": "fileNameVariable",
 							"type": "SetVariable",
 							"dependsOn": [],
 							"policy": {
@@ -69,11 +69,11 @@
 							}
 						},
 						{
-							"name": "Lookup1",
+							"name": "countLookup",
 							"type": "Lookup",
 							"dependsOn": [
 								{
-									"activity": "Set variable1",
+									"activity": "fileNameVariable",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -115,7 +115,7 @@
 							"type": "IfCondition",
 							"dependsOn": [
 								{
-									"activity": "Lookup1",
+									"activity": "countLookup",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -124,12 +124,12 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@greater(activity('Lookup1').output.count,0)",
+									"value": "@greater(activity('countLookup').output.count,0)",
 									"type": "Expression"
 								},
 								"ifFalseActivities": [
 									{
-										"name": "Set variable3",
+										"name": "fileIsEmpty",
 										"type": "SetVariable",
 										"dependsOn": [],
 										"policy": {
@@ -145,7 +145,7 @@
 								],
 								"ifTrueActivities": [
 									{
-										"name": "Copy data1",
+										"name": "cpyFile",
 										"type": "Copy",
 										"dependsOn": [],
 										"policy": {
