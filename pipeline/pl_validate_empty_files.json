@@ -93,7 +93,10 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
-										"wildcardFileName": "*",
+										"wildcardFileName": {
+											"value": "@variables('var01')",
+											"type": "Expression"
+										},
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -136,7 +139,7 @@
 										"userProperties": [],
 										"typeProperties": {
 											"variableName": "var03",
-											"value": "File has rows to process"
+											"value": "File is EMPTY"
 										}
 									}
 								],
@@ -152,7 +155,7 @@
 										"userProperties": [],
 										"typeProperties": {
 											"variableName": "var02",
-											"value": "'File is *EMPTY*'"
+											"value": "'Non-Empty-File'"
 										}
 									}
 								]
