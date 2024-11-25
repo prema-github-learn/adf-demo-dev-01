@@ -33,7 +33,7 @@
 				}
 			},
 			{
-				"name": "ForEach1",
+				"name": "loopAllFile",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -111,7 +111,7 @@
 							}
 						},
 						{
-							"name": "If Condition1",
+							"name": "processFileonCountGraterThan One",
 							"type": "IfCondition",
 							"dependsOn": [
 								{
