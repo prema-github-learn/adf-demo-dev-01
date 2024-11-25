@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Get Metadata1",
+				"name": "GetListOfFiles",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -37,7 +37,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Get Metadata1",
+						"activity": "GetListOfFiles",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -46,13 +46,13 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get Metadata1').output.childItems",
+						"value": "@activity('GetListOfFiles').output.childItems",
 						"type": "Expression"
 					},
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "fileNameVariable",
+							"name": "fileName",
 							"type": "SetVariable",
 							"dependsOn": [],
 							"policy": {
@@ -73,7 +73,7 @@
 							"type": "Lookup",
 							"dependsOn": [
 								{
-									"activity": "fileNameVariable",
+									"activity": "fileName",
 									"dependencyConditions": [
 										"Succeeded"
 									]
