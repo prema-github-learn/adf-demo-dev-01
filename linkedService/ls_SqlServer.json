@@ -5,6 +5,9 @@
 		"parameters": {
 			"dbName": {
 				"type": "string"
+			},
+			"tgtDbName": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -16,7 +19,7 @@
 			"trustServerCertificate": true,
 			"authenticationType": "SQL",
 			"userName": "sa",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1MjlkZWFkYy1lYzdhLTQwMzAtOGZjMy0wMDFmMTRiYmQ4MjkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjYWZiNWMwNC0wNmVkLTQyMzUtYjU2NS0zMWVjNDg1NmNkNjgiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "selfHostedIR",
