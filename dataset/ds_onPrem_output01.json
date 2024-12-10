@@ -1,0 +1,21 @@
+{
+	"name": "ds_onPrem_output01",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sqlServer_tgt_db",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"tgtDataBase": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "table_1_tgt"
+		}
+	}
+}
