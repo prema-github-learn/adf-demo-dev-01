@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "copyData",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -64,13 +64,68 @@
 						}
 					}
 				]
+			},
+			{
+				"name": "failure",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "copyData",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "ErrorCode",
+					"value": {
+						"value": "@json(concat(\n    '{\"ErrorCode\": \"', \n    string(activity('copyData').output.errors[0].Code), \n    '\", \"ErrorMessage\": \"', \n    string(activity('copyData').output.errors[0].Message), \n    '\", \"FailureInitiator\": \"', \n    string(activity('copyData').output.errors[0].Data.FailureInitiator), \n    '\"}'\n))\n",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "success",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "copyData",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "success",
+					"value": "Completed"
+				}
 			}
 		],
 		"parameters": {
 			"dbName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Project_database_dev01"
 			},
 			"tgtDbName": {
+				"type": "String",
+				"defaultValue": "Project_database_dev01_tgt"
+			}
+		},
+		"variables": {
+			"success": {
+				"type": "String"
+			},
+			"ErrorCode": {
 				"type": "String"
 			}
 		},
