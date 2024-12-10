@@ -84,7 +84,7 @@
 				"typeProperties": {
 					"variableName": "ErrorCode",
 					"value": {
-						"value": "@json(concat(\n    '{\"ErrorCode\": \"', \n    string(activity('copyData').output.errors[0].Code), \n    '\", \"ErrorMessage\": \"', \n    string(activity('copyData').output.errors[0].Message), \n    '\", \"FailureInitiator\": \"', \n    string(activity('copyData').output.errors[0].Data.FailureInitiator), \n    '\"}'\n))\n",
+						"value": "@string(activity('copyData').output.errors[0].Message)\n",
 						"type": "Expression"
 					}
 				}
