@@ -1,0 +1,20 @@
+{
+	"name": "DestinationDataset_9l3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_gen2_01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "sam1.parquet",
+				"fileSystem": "outputfiles"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
