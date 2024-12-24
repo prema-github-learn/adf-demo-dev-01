@@ -1,0 +1,31 @@
+{
+	"name": "tr_Json_File",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_allinOne_files",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"filePathSource": "inputfiles",
+					"filePathTarget": "outputfiles",
+					"nameSourceFile": "customer.json",
+					"nameTargteFile": "customer_tgt.json"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2024-12-24T06:01:00",
+				"endTime": "2024-12-25T06:01:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
