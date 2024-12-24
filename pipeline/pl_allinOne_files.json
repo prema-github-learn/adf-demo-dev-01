@@ -50,13 +50,33 @@
 				"inputs": [
 					{
 						"referenceName": "ls_files_source",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"srcPath": {
+								"value": "@pipeline().parameters.filePathSource",
+								"type": "Expression"
+							},
+							"srcFileName": {
+								"value": "@pipeline().parameters.nameSourceFile",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ls_files_targte",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"tgtPath": {
+								"value": "@pipeline().parameters.filePathTarget",
+								"type": "Expression"
+							},
+							"tgtFileName": {
+								"value": "@pipeline().parameters.nameTargteFile",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
