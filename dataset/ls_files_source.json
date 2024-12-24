@@ -1,0 +1,37 @@
+{
+	"name": "ls_files_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_gen2_01",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"srcPath": {
+				"type": "string"
+			},
+			"srcFileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().srcFileName",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().srcPath",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
